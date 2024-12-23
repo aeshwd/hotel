@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Alpino | 5 Star Motel & Resort</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<style>
+    * {
+        font-family: sans-serif;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .custom-bg {
+        background-color: green;
+    }
+
+    .custom-bg:hover {
+        background-color: rgb(2, 83, 2);
+    }
+
+    .availability-con {
+        margin-top: -50px;
+        z-index: 2;
+        position: relative;
+    }
+
+    @media screen and (max-width: 700px) {
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .availability-con {
+            margin-top: 25px;
+            padding: 0 28px;
+        }
+    }
+</style>
+
+<body class="bg-light">
+
+    <!--Navbar-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Horizonte Alpino</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Rooms</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Facilities</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">About</a>
+                    </li>
+
+                </ul>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary login-but" data-bs-toggle="modal"
+                    data-bs-target="#loginModal">
+                    Login
+                </button>
+
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#registerModal">
+                    Register
+                </button>
+
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <i class="bi bi-person-circle icon"></i>
+                        <h1 class="modal-title fs-5 modal-text" id="exampleModalLabel">Login Now</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label shadow-none">Email address</label>
+                            <input type="email" class="form-control">
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label shadow-none">Password</label>
+                            <input type="password" class="form-control">
+
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between">
+                            <button type="submit" class="btn btn-dark shadow-none mt-2">Login</button>
+                            <a href="javascript: void(0)" class="text-decoration-none text-dark"> Forgot
+                                Password?</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <i class="bi bi-person-lines-fill icon"></i>
+                        <h1 class="modal-title fs-5 modal-text" id="exampleModalLabel">Register Now</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="badge text-bg-light mb-3 text-wrap lh-base">
+                            Note: Your details must match with your ID (Aadhar Card, Driving License,
+                            Passport etc.) that will be required during check-in.
+                        </span>
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label shadow-none">Name</label>
+                                    <input type="text" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-6 p-0">
+                                    <label class="form-label shadow-none">Email address</label>
+                                    <input type="email" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label shadow-none">Phone Number</label>
+                                    <input type="number" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-6 p-0">
+                                    <label class="form-label shadow-none">Picture</label>
+                                    <input type="file" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-12 p-0 mb-3">
+                                    <label class="form-label shadow-none">Address</label>
+                                    <textarea class="form-control shadow-none" rows="1"></textarea>
+                                </div>
+
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label shadow-none">Pincode</label>
+                                    <input type="number" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-6 p-0">
+                                    <label class="form-label shadow-none">Date Of Birth</label>
+                                    <input type="date" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-12 p-0 mb-3">
+                                    <label class="form-label shadow-none">Nationality</label>
+                                    <input type="text" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-6 ps-0 mb-3">
+                                    <label class="form-label shadow-none">Password</label>
+                                    <input type="password" class="form-control shadow-none">
+                                </div>
+
+                                <div class="col-md-6 p-0">
+                                    <label class="form-label shadow-none">Confirm Password</label>
+                                    <input type="password" class="form-control shadow-none">
+                                </div>
+
+
+                            </div>
+
+                            <div class="d-flex align-items-center justify-content-center">
+                                <button type="submit" class="btn btn-dark shadow-none mt-2">Register</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="container-fluid px-lg-4 mt-4">
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/carousel/IMG_15372.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/IMG_40905.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/IMG_55677.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/IMG_62045.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/IMG_93127.png">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel/IMG_99736.png">
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!--Check Availability-->
+
+    <div class="container availability-con">
+        <div class="row">
+            <div class="col-lg-12 bg-white shadow p-4 rounded">
+                <h4 class="mb-4">Check Availability</h4>
+                <form>
+                    <div class="row align-items-end">
+                        <div class="col-lg-3  mb-4">
+                            <label class="form-label shadow-none" style="font-weight: 700;">Check In</label>
+                            <input type="date" class="form-control shadow-none">
+                        </div>
+
+                        <div class="col-lg-3  mb-4">
+                            <label class="form-label shadow-none" style="font-weight: 700;">Check Out</label>
+                            <input type="date" class="form-control shadow-none">
+                        </div>
+
+                        <div class="col-lg-3  mb-4">
+                            <label class="form-label shadow-none" style="font-weight: 700;">Adult</label>
+                            <select class="form-select shadow-none">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-lg-2 mb-4">
+                            <label class="form-label shadow-none" style="font-weight: 700;">Children (>12 years)</label>
+                            <select class="form-select shadow-none">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+
+                        </div>
+
+                        <div class="col-lg-1 mb-lg-3 mt-2">
+                            <button type="submit" class="btn text-white shadow-none custom-bg">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Rooms-->
+
+    <h3 class="mt-5 pt-4 mb-4 text-center fw-bold">OUR ROOMS</h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-none shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/rooms/1.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="mb-3 fw-bold">Delux Room</h5>
+                        <h6 class="mb-4 fw-bold text-danger">Rs. 1200/- </h6>
+                        <div class="features mb-4">
+                            <h6 class="mb-1 fw-bold">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Rooms
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Balcony
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Sofa
+                            </span>
+                        </div>
+
+                        <div class="facilities mb-4">
+                            <h6 class="mb-1 fw-bold">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Heater
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                AC
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                        </div>
+
+                        <div class="rating mb-4">
+                            <h6 class="mb-1 fw-bold">Rating</h6>
+                            <span class="badge rounded-pill bg-light">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-half text-warning"></i>
+                            </span>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly">
+                            <a href="#" class="btn text-white btn-sm custom-bg shadow-none">Book Now</a>
+                            <a href="#" class="btn btn-outline-dark btn-sm  shadow-none">More Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-none shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/rooms/IMG_11892.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="mb-3 fw-bold"> Super Delux Room</h5>
+                        <h6 class="mb-4 fw-bold text-danger">Rs. 1800/- </h6>
+                        <div class="features mb-4">
+                            <h6 class="mb-1 fw-bold">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Rooms
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                1 Balcony
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Sofa
+                            </span>
+                        </div>
+
+                        <div class="facilities mb-4">
+                            <h6 class="mb-1 fw-bold">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Heater
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                AC
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Purifier
+                            </span>
+                        </div>
+
+                        <div class="rating mb-4">
+                            <h6 class="mb-1 fw-bold">Rating</h6>
+                            <span class="badge rounded-pill bg-light">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                
+                            </span>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly">
+                            <a href="#" class="btn text-white btn-sm custom-bg shadow-none">Book Now</a>
+                            <a href="#" class="btn btn-outline-dark btn-sm  shadow-none">More Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 my-3">
+                <div class="card border-none shadow" style="max-width: 350px; margin: auto;">
+                    <img src="images/rooms/IMG_39782.png" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="mb-3 fw-bold">Premium Room</h5>
+                        <h6 class="mb-4 fw-bold text-danger">Rs. 2300/- </h6>
+                        <div class="features mb-4">
+                            <h6 class="mb-1 fw-bold">Features</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                3 Rooms
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Bathroom
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2 Balcony
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                3 Sofa
+                            </span>
+                        </div>
+
+                        <div class="facilities mb-4">
+                            <h6 class="mb-1 fw-bold">Facilities</h6>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Television
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Heater
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                AC
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Wifi
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                Purifier
+                            </span>
+                            <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                2-Wheller
+                            </span>
+                        </div>
+
+                        <div class="rating mb-4">
+                            <h6 class="mb-1 fw-bold">Rating</h6>
+                            <span class="badge rounded-pill bg-light">
+                                <i class="bi bi-star-fill text-warning "></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                <i class="bi bi-star-fill text-warning"></i>
+                                
+                            </span>
+                        </div>
+
+                        <div class="d-flex justify-content-evenly">
+                            <a href="#" class="btn text-white btn-sm custom-bg shadow-none">Book Now</a>
+                            <a href="#" class="btn btn-outline-dark btn-sm  shadow-none">More Details</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-12 text-center mt-3">
+                <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
+            </div>
+        </div>
+    </div>
+
+     <!--Facilities-->
+
+     <h3 class="mt-5 pt-4 mb-4 text-center fw-bold">OUR FACILITIES</h3>
+
+     <div class="container">
+        <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
+            <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+              <img src="images/facilities/IMG_27079.svg" width="80px">
+              <h5>Heater</h5>
+            </div>
+
+              <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/IMG_43553.svg" width="80px">
+                <h5>Wifi</h5>
+              </div>
+
+              <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/IMG_47816.svg" width="80px">
+                <h5>SPA</h5>
+              </div>
+
+              <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/IMG_49949.svg" width="80px">
+                <h5>AC</h5>
+              </div>
+
+              <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <img src="images/facilities/IMG_96423.svg" width="80px">
+                <h5>Toaster</h5>
+              </div>
+        </div>
+     </div>
+
+
+     <!--Reach-->
+
+     <h3 class="mt-5 pt-4 mb-4 text-center fw-bold">REACH US</h3>
+
+     <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 mb-lg-0 mb-3 bg-white rounded">
+                <iframe class="w-100 p-2 rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55039.88463945817!2d-68.36945922244617!3d-54.80863005780672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc4c22b5bad109bf%3A0x5498473dba43ebfc!2sV9410%20Ushuaia%2C%20Tierra%20del%20Fuego%20Province%2C%20Argentina!5e0!3m2!1sen!2sin!4v1734976936262!5m2!1sen!2sin"  height="400px"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+
+                <div class="bg-white p-4 rounded mb-4">
+                    <h5>Call us</h5>
+                    <a href="tel: +72 1243904512" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill"></i>
+                        +72 1243904512
+                    </a>
+                    <br>
+
+                    <a href="tel: +72 1243905432" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill"></i>
+                        +72 1243905432
+                    </a>
+                </div>
+
+                <div class="bg-white p-4 rounded mb-4">
+                    <h5>Follow us</h5>
+                    <a href="#" class="d-inline-block mb-3">
+                        <span class="badge bg-light text-dark fs-6 p-2">
+                            <i class="bi bi-twitter me-1"></i>
+                            Twitter
+                        </span>
+                    </a>
+                    <br>
+
+                    <a href="#" class="d-inline-block mb-3">
+                        <span class="badge bg-light text-dark fs-6 p-2">
+                            <i class="bi bi-facebook me-1"></i>
+                            Facebook
+                        </span>
+                    </a>
+
+                    <br>
+
+                    <a href="#" class="d-inline-block">
+                        <span class="badge bg-light text-dark fs-6 p-2">
+                            <i class="bi bi-instagram me-1"></i>
+                            Instagram
+                        </span>
+                    </a>
+
+                   
+                </div>
+            </div>
+        </div>
+     </div>
+
+
+   <!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+   
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>
+              <img src="images/logo.png" width="200px" class="rounded">
+            </h6>
+            <p>
+             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore aliquid dolorum molestiae quia sint sapiente repellat! Ducimus libero quaerat qui.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset text-decoration-none">Home</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset text-decoration-none">Rooms</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset text-decoration-none">Facilities</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset text-decoration-none">About</a>
+            </p>
+
+            <p>
+                <a href="#!" class="text-reset text-decoration-none">Contact</a>
+              </p>
+          </div>
+          <!-- Grid column -->
+  
+         
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2024 Copyright:
+      <a class="text-reset fw-bold" href="#">Horizonte Alpino</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+    
+
+     
+
+
+    
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        }
+    });
+</script>
+
+
+  
+
+
+</html>
